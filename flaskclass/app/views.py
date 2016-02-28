@@ -49,9 +49,9 @@ def get_nums():
 	if request.method == 'GET':	
 		return render_template('get_lucky.html', form=form)
 
-@app.route('/spotify/')
-def spotify():
-    url = "https://api.spotify.com/v1/search?q=elvis*&type=artist"
+@app.route('/spotify/<artist>/')
+def spotify_artist(artist):
+    url = "https://api.spotify.com/v1/search?q=<artist>*&type=artist"
     response = urllib.urlopen(url)
     data = json.loads(response.read())
     
